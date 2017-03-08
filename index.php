@@ -12,23 +12,15 @@
 </script>
 
 <?php
+include "functions.php";
+
 
 $date = "08.03.2017";
 $number = 5;
 
 echo $date.", kolmas tund.<br>";
 
-function aeg(){
-    date_default_timezone_set("Europe/Tallinn");
-    $time = date("H:i:s");
-    echo $time."<br>";
-    if($time > "16:00"){
-        echo "Tund läbi, järgmine tund!";
-    }
-    else{
-        echo "Peab kannatama!";
-    }
-}
+
 echo "<div></div>";
 
 aeg();

@@ -24,4 +24,8 @@ echo $date.", kolmas tund.<br>";
 echo "<div></div>";
 
 aeg();
+
+GetIp();
+
+counter();
 ?>

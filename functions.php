@@ -14,13 +14,41 @@ function aeg(){
 }
 
 function menu(){
-    $files = "array, functions, info";
+    $files = "array, functions, info, file, curl";
     $menu_arr = explode(",", $files);
     for($i=0;$i<count($menu_arr);$i++){
         echo '<li><a href="'.$menu_arr[$i].'.php">'.$menu_arr[$i].'</a></li>';
     }
 }
 
+function counter(){
+    $file_name = "count.txt";
+    if(file_exists($file_name)){
+        $file = fopen($file_name, "r+") or die("pahasti");
+        $arv = file_get_contents($file_name) + 1;
+        fwrite($file, $arv);
+        echo "Olete külastaja nr ". $arv;
+        fclose($file);
+    }
+    else{
+        $file = fopen($file_name, "w") or die("pahasti");
+        $arv = 1;
+        fwrite($file, $arv);
+        echo "Olete külastaja nr ". $arv;
+        fclose($file);
+    }
+    
+}
 
+function GetIp(){
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $file_name = 'visitor.txt';
+    $time = date("d.m.Y H:i:s");
+    $visitor = $ip." ".$time."\n";
+    $file = fopen($file_name, "a") or die("Nope");
+    echo "Külastaja aadress on ".$ip;
+    fwrite($file, $visitor);
+    fclose($file);
+}
 
 ?>

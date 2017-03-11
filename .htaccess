@@ -1,0 +1,15 @@
+#shellscript
+
+AuthType Basic
+AuthName "Protected"
+AuthUserFile C:\\xamppReal\\htdocs\\tederitund\\.htpasswd
+Require valid-user
+
+
+<files "*.html">
+deny from all
+</files>
+
+<files "*.txt">
+deny from all
+</files>
